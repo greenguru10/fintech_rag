@@ -9,10 +9,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Install python dependencies
-COPY pyproject.toml .
+# Install python dependencies from requirements.txt
+COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir .
+    pip install --no-cache-dir -r requirements.txt
 
 # Production Runner Image
 FROM python:3.11-slim as runner
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy installed python packages from builder
+# Copy installed python packages and binaries from builder
 COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 
@@ -34,6 +34,7 @@ COPY app ./app
 COPY configs ./configs
 COPY data ./data
 COPY scripts ./scripts
+COPY pyproject.toml requirements.txt README.md ./
 
 # Environment defaults
 ENV PYTHONUNBUFFERED=1 \
@@ -47,5 +48,5 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
 
 EXPOSE 8000
 
-# Start production server with uvicorn
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]
+# Start production server with uvicorn via python module
+CMD ["sh", "-c", "python -m uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
