@@ -1,0 +1,69 @@
+sources:
+  - name: "Reserve Bank of India"
+    authority_level: "A"
+    authority_score: 1.00
+    source_type: "regulator"
+    base_url: "https://www.rbi.org.in"
+
+  - name: "Securities and Exchange Board of India"
+    authority_level: "A"
+    authority_score: 1.00
+    source_type: "regulator"
+    base_url: "https://www.sebi.gov.in"
+
+  - name: "Insurance Regulatory and Development Authority of India"
+    authority_level: "A"
+    authority_score: 1.00
+    source_type: "regulator"
+    base_url: "https://irdai.gov.in"
+
+  - name: "Income Tax Department of India"
+    authority_level: "A"
+    authority_score: 1.00
+    source_type: "government"
+    base_url: "https://incometaxindia.gov.in"
+
+  - name: "Association of Mutual Funds in India"
+    authority_level: "B"
+    authority_score: 0.90
+    source_type: "industry_body"
+    base_url: "https://www.amfiindia.com"
+
+  - name: "National Payments Corporation of India"
+    authority_level: "B"
+    authority_score: 0.90
+    source_type: "statutory_body"
+    base_url: "https://www.npci.org.in"
+
+categories:
+  - slug: "banking"
+    display_name: "Banking & Payments"
+    description: "Savings accounts, NEFT, RTGS, IMPS, UPI, KYC, and deposit facilities"
+
+  - slug: "loans"
+    display_name: "Loans & Borrowing"
+    description: "Home loans, personal loans, EMI, interest rates, tenure, and prepayment"
+
+  - slug: "credit_cards"
+    display_name: "Credit Cards"
+    description: "Credit cards, billing cycles, minimum due, charges, and credit score"
+
+  - slug: "investments"
+    display_name: "Investments & Wealth"
+    description: "Mutual funds, SIP, fixed deposits, recurring deposits, CAGR, and equity concepts"
+
+  - slug: "insurance"
+    display_name: "Insurance"
+    description: "Life and health insurance, deductibles, premiums, and claim procedures"
+
+  - slug: "taxation"
+    display_name: "Taxation"
+    description: "Income tax basics, TDS, deductions, and financial year definitions"
+
+  - slug: "personal_finance"
+    display_name: "Personal Finance"
+    description: "Budgeting, inflation, compounding, and financial planning literacy"
+
+  - slug: "financial_regulation"
+    display_name: "Financial Regulation"
+    description: "RBI circulars, SEBI norms, grievance redressal, and consumer rights"

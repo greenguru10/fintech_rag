@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTech AI - Smart Financial Assistant & Calculators</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="chatgpt-theme">
+    <div class="app-layout">
+        <!-- Collapsible Left Sidebar (ChatGPT Style) -->
+        <aside class="chat-sidebar" id="chatSidebar">
+            <div class="sidebar-top">
+                <button class="new-chat-btn" id="newChatBtn" title="New chat">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>New chat</span>
+                </button>
+                <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" title="Close sidebar">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+
+            <!-- Interactive Financial Calculators -->
+            <div class="sidebar-section">
+                <div class="sidebar-section-heading">Financial Calculators</div>
+                <div class="sidebar-nav-list">
+                    <button class="sidebar-nav-item" id="openEmiCalcBtn">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Loan EMI & Repayment</span>
+                    </button>
+                    <button class="sidebar-nav-item" id="openSipCalcBtn">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>SIP Wealth Accumulator</span>
+                    </button>
+                    <button class="sidebar-nav-item" id="openCiCalcBtn">
+                        <i class="fa-solid fa-percent"></i>
+                        <span>Compound Interest (FD)</span>
+                    </button>
+                    <button class="sidebar-nav-item" id="openCagrCalcBtn">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                        <span>CAGR Annual Growth</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Beginner Topic Guides -->
+            <div class="sidebar-section scrollable-section">
+                <div class="sidebar-section-heading">Popular Questions</div>
+                <div class="sidebar-nav-list" id="recentChatsList">
+                    <button class="sidebar-nav-item topic-chip" data-query="How does Loan EMI work and how to reduce it?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>How Loan EMI Works</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="Old vs new tax regime: Which is better for salaried?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Old vs New Tax Regime</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="What is DICGC 5 Lakh deposit insurance?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Is My Bank Money Safe?</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="How does UPI Lite work and what are the limits?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>UPI Lite & Daily Limits</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="What happens if I only pay the minimum due on a credit card?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Credit Card Minimum Due</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="What is the difference between Term Insurance and Health Insurance?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Term vs Health Insurance</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="How to improve my CIBIL credit score?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>How to Improve CIBIL Score</span>
+                    </button>
+                    <button class="sidebar-nav-item topic-chip" data-query="How to file a complaint with RBI Banking Ombudsman?">
+                        <i class="fa-regular fa-message"></i>
+                        <span>RBI Banking Ombudsman</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar Bottom Profile / Info -->
+            <div class="sidebar-footer">
+                <div class="sidebar-user-pill">
+                    <div class="user-avatar-circle">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="user-info-text">
+                        <strong>Verified FinTech AI</strong>
+                        <span>RBI • SEBI • Tax Guidelines</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Canvas (ChatGPT Central Column) -->
+        <main class="chat-main">
+            <!-- Top Header Bar -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="icon-button" id="mobileMenuBtn" title="Toggle Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="model-badge-dropdown">
+                        <span class="model-name">FinTech AI</span>
+                        <span class="model-badge"><i class="fa-solid fa-shield-check"></i> 100% Grounded</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <button class="header-calc-btn" id="headerCalcBtn" title="Open Calculators">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Calculators</span>
+                    </button>
+                    <button class="icon-button" id="clearChatTopBtn" title="Start new chat">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Chat Content Stream -->
+            <div class="chat-scroll-container" id="chatContainer">
+                <div class="chat-inner-width">
+                    
+                    <!-- Friendly Center Hero Welcome Screen -->
+                    <div class="welcome-hero" id="welcomeCard">
+                        <div class="assistant-logo-orb">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h1 class="welcome-title">How can I help you with your finances?</h1>
+                        <p class="welcome-subtext">Ask any financial question in plain simple words — loans, taxes, SIPs, banking safety, insurance, or instant math calculations.</p>
+
+                        <!-- Category Filter Pills -->
+                        <div class="category-pills-row">
+                            <button class="cat-pill active" data-cat="all">🌟 All Topics</button>
+                            <button class="cat-pill" data-cat="loans">💰 Loans & EMI</button>
+                            <button class="cat-pill" data-cat="invest">📈 SIP & Investing</button>
+                            <button class="cat-pill" data-cat="tax">🧾 Tax & Savings</button>
+                            <button class="cat-pill" data-cat="banking">🏦 Banking & UPI</button>
+                        </div>
+
+                        <!-- 4 Suggestion Cards (ChatGPT Style Grid) -->
+                        <div class="prompt-cards-grid" id="promptCardsGrid">
+                            <div class="prompt-card" onclick="handlePromptClick('How much is the EMI for a ₹5 Lakh loan at 10% for 5 years?')">
+                                <div class="prompt-card-icon"><i class="fa-solid fa-calculator"></i></div>
+                                <div class="prompt-card-title">Loan EMI Calculator</div>
+                                <div class="prompt-card-desc">"How much is the EMI for a ₹5 Lakh loan at 10% for 5 years?"</div>
+                            </div>
+                            <div class="prompt-card" onclick="handlePromptClick('What will ₹5,000 per month become in 10 years at 12% in a SIP?')">
+                                <div class="prompt-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                                <div class="prompt-card-title">SIP Wealth Accumulator</div>
+                                <div class="prompt-card-desc">"What will ₹5,000/mo become in 10 years at 12% in a SIP?"</div>
+                            </div>
+                            <div class="prompt-card" onclick="handlePromptClick('Explain Old vs New Tax Regime: Which is better for me?')">
+                                <div class="prompt-card-icon"><i class="fa-solid fa-receipt"></i></div>
+                                <div class="prompt-card-title">Tax Regime Comparison</div>
+                                <div class="prompt-card-desc">"Explain Old vs New Tax Regime: Which is better for me?"</div>
+                            </div>
+                            <div class="prompt-card" onclick="handlePromptClick('Is my money safe in bank accounts? (Explain DICGC ₹5 Lakh rule)')">
+                                <div class="prompt-card-icon"><i class="fa-solid fa-vault"></i></div>
+                                <div class="prompt-card-title">Bank Deposit Safety</div>
+                                <div class="prompt-card-desc">"Is my money safe in bank accounts? (Explain DICGC rule)"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messages Stream -->
+                    <div class="messages-flow" id="messagesList"></div>
+                </div>
+            </div>
+
+            <!-- ChatGPT Style Floating Bottom Input Bar -->
+            <div class="bottom-input-container">
+                <div class="input-inner-wrapper">
+                    <div class="chatgpt-input-box">
+                        <button class="attach-tool-btn" id="attachToolBtn" title="Open Financial Calculators">
+                            <i class="fa-solid fa-calculator"></i>
+                        </button>
+                        
+                        <textarea 
+                            id="userQueryInput" 
+                            class="chatgpt-textarea" 
+                            placeholder="Ask anything about banking, loans, taxes, SIPs, or calculations (e.g. 'Calculate EMI for 5 lakh loan')..."
+                            rows="1"
+                        ></textarea>
+
+                        <button id="sendQueryBtn" class="chatgpt-send-btn" disabled title="Send message">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                    </div>
+
+                    <div class="input-legal-footer">
+                        FinTech AI is grounded strictly in official RBI, SEBI, IRDAI & Income Tax Department rules. Educational information only.
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Slide-out Calculator Drawer -->
+        <div class="drawer-backdrop" id="calcDrawerOverlay"></div>
+        <aside class="calc-drawer" id="calcDrawer">
+            <div class="drawer-header">
+                <div class="drawer-title">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Financial Calculators</span>
+                </div>
+                <button class="icon-button" id="closeCalcDrawerBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="drawer-tabs">
+                <button class="drawer-tab active" data-tab="emi">Loan EMI</button>
+                <button class="drawer-tab" data-tab="sip">SIP Fund</button>
+                <button class="drawer-tab" data-tab="ci">Compound Int</button>
+                <button class="drawer-tab" data-tab="cagr">CAGR</button>
+            </div>
+
+            <div class="drawer-body">
+                <!-- EMI Tab -->
+                <div class="tab-pane active" id="tab-emi">
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Loan Amount (Principal)</label>
+                            <span class="value-badge" id="lblEmiPrincipal">₹5,00,000</span>
+                        </div>
+                        <input type="text" id="emiPrincipal" value="500000" placeholder="e.g. 500000 or 5 lakh">
+                        <input type="range" id="emiPrincipalRange" min="50000" max="10000000" step="50000" value="500000">
+                    </div>
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Annual Interest Rate (%)</label>
+                            <span class="value-badge" id="lblEmiRate">10.0%</span>
+                        </div>
+                        <input type="number" id="emiRate" step="0.1" value="10.0" placeholder="e.g. 9.5">
+                        <input type="range" id="emiRateRange" min="1" max="25" step="0.1" value="10.0">
+                    </div>
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Loan Tenure (Years)</label>
+                            <span class="value-badge" id="lblEmiTenure">5 Years</span>
+                        </div>
+                        <input type="number" id="emiTenure" value="5" placeholder="e.g. 5">
+                        <input type="range" id="emiTenureRange" min="1" max="30" step="1" value="5">
+                    </div>
+                    <button class="btn-chatgpt-primary" id="calcEmiBtn">Calculate Loan EMI</button>
+
+                    <div class="calc-results-card" id="emiResultCard">
+                        <div class="result-metric highlight">
+                            <span>Monthly EMI Payment</span>
+                            <strong id="resMonthlyEmi">₹10,623.52</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Principal Amount:</span>
+                            <strong id="resPrincipal">₹5,00,000.00</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Interest Payable:</span>
+                            <strong id="resTotalInterest">₹1,37,411.20</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Amount Payable:</span>
+                            <strong id="resTotalPayment">₹6,37,411.20</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIP Tab -->
+                <div class="tab-pane" id="tab-sip">
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Monthly Contribution</label>
+                            <span class="value-badge" id="lblSipAmount">₹10,000</span>
+                        </div>
+                        <input type="text" id="sipAmount" value="10000" placeholder="e.g. 10000">
+                    </div>
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Assumed Annual Return</label>
+                            <span class="value-badge" id="lblSipRate">12.0%</span>
+                        </div>
+                        <input type="number" id="sipRate" step="0.1" value="12.0" placeholder="e.g. 12">
+                    </div>
+                    <div class="calc-input-group">
+                        <div class="input-label-row">
+                            <label>Time Horizon (Years)</label>
+                            <span class="value-badge" id="lblSipYears">10 Years</span>
+                        </div>
+                        <input type="number" id="sipYears" value="10" placeholder="e.g. 10">
+                    </div>
+                    <button class="btn-chatgpt-primary" id="calcSipBtn">Calculate Future Value</button>
+
+                    <div class="calc-results-card" id="sipResultCard">
+                        <div class="result-metric highlight">
+                            <span>Estimated Maturity Value</span>
+                            <strong id="resSipFv">₹23,00,386.89</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Amount Invested:</span>
+                            <strong id="resSipInvested">₹12,00,000.00</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Estimated Capital Gain:</span>
+                            <strong id="resSipGain">₹11,00,386.89</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CI Tab -->
+                <div class="tab-pane" id="tab-ci">
+                    <div class="calc-input-group">
+                        <label>Principal Deposit (₹)</label>
+                        <input type="text" id="ciPrincipal" value="100000" placeholder="e.g. 100000">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Annual Interest Rate (%)</label>
+                        <input type="number" id="ciRate" step="0.1" value="8.0" placeholder="e.g. 8">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Tenure (Years)</label>
+                        <input type="number" id="ciYears" value="5" placeholder="e.g. 5">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Compounding Frequency</label>
+                        <select id="ciCompounds">
+                            <option value="4" selected>Quarterly (Indian Bank FDs)</option>
+                            <option value="1">Annually</option>
+                            <option value="2">Half-Yearly</option>
+                            <option value="12">Monthly</option>
+                        </select>
+                    </div>
+                    <button class="btn-chatgpt-primary" id="calcCiBtn">Calculate Compound Interest</button>
+
+                    <div class="calc-results-card" id="ciResultCard">
+                        <div class="result-metric highlight">
+                            <span>Total Maturity Value</span>
+                            <strong id="resCiMaturity">₹1,48,594.74</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Total Interest Earned:</span>
+                            <strong id="resCiInterest">₹48,594.74</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAGR Tab -->
+                <div class="tab-pane" id="tab-cagr">
+                    <div class="calc-input-group">
+                        <label>Initial Investment Value (₹)</label>
+                        <input type="text" id="cagrBv" value="100000">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Ending Value (₹)</label>
+                        <input type="text" id="cagrEv" value="150000">
+                    </div>
+                    <div class="calc-input-group">
+                        <label>Duration (Years)</label>
+                        <input type="number" id="cagrYears" value="3">
+                    </div>
+                    <button class="btn-chatgpt-primary" id="calcCagrBtn">Calculate CAGR</button>
+
+                    <div class="calc-results-card" id="cagrResultCard">
+                        <div class="result-metric highlight">
+                            <span>Compound Annual Growth Rate</span>
+                            <strong id="resCagrPct">14.47%</strong>
+                        </div>
+                        <div class="result-row">
+                            <span>Absolute Capital Gain:</span>
+                            <strong id="resCagrAbs">₹50,000.00 (50.00%)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

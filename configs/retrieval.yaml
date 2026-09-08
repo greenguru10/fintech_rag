@@ -1,0 +1,17 @@
+retrieval:
+  bm25_weight: 0.48
+  tfidf_weight: 0.27
+  metadata_weight: 0.10
+  authority_weight: 0.10
+  recency_weight: 0.05
+
+  recency_decay_lambda: 0.35
+
+  min_hybrid_score: 0.35
+  min_sentence_score: 0.40
+
+  top_candidates_bm25: 30
+  top_candidates_tfidf: 30
+  union_candidate_cap: 60
+  final_evidence_chunks: 4
+  final_cited_sources: 3

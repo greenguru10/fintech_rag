@@ -1,0 +1,213 @@
+abbreviations:
+  emi:
+    expansion: "equated monthly instalment"
+    category: "loans"
+  fd:
+    expansion: "fixed deposit"
+    category: "banking"
+  rd:
+    expansion: "recurring deposit"
+    category: "banking"
+  sip:
+    expansion: "systematic investment plan"
+    category: "investments"
+  swp:
+    expansion: "systematic withdrawal plan"
+    category: "investments"
+  stp:
+    expansion: "systematic transfer plan"
+    category: "investments"
+  roi:
+    expansion: "return on investment"
+    category: "investments"
+  apr:
+    expansion: "annual percentage rate"
+    category: "loans"
+  kyc:
+    expansion: "know your customer"
+    category: "banking"
+  v_cip:
+    expansion: "video based customer identification process"
+    category: "banking"
+  upi:
+    expansion: "unified payments interface"
+    category: "banking"
+  vpa:
+    expansion: "virtual payment address"
+    category: "banking"
+  neft:
+    expansion: "national electronic funds transfer"
+    category: "banking"
+  rtgs:
+    expansion: "real time gross settlement"
+    category: "banking"
+  imps:
+    expansion: "immediate payment service"
+    category: "banking"
+  cagr:
+    expansion: "compound annual growth rate"
+    category: "investments"
+  tds:
+    expansion: "tax deducted at source"
+    category: "taxation"
+  tcs:
+    expansion: "tax collected at source"
+    category: "taxation"
+  cibil:
+    expansion: "credit information bureau india limited"
+    category: "credit_cards"
+  nav:
+    expansion: "net asset value"
+    category: "investments"
+  ppf:
+    expansion: "public provident fund"
+    category: "investments"
+  epf:
+    expansion: "employee provident fund"
+    category: "personal_finance"
+  vpf:
+    expansion: "voluntary provident fund"
+    category: "personal_finance"
+  nps:
+    expansion: "national pension system"
+    category: "investments"
+  itr:
+    expansion: "income tax return"
+    category: "taxation"
+  gst:
+    expansion: "goods and services tax"
+    category: "taxation"
+  dicgc:
+    expansion: "deposit insurance and credit guarantee corporation"
+    category: "banking"
+  ter:
+    expansion: "total expense ratio"
+    category: "investments"
+  elss:
+    expansion: "equity linked savings scheme"
+    category: "investments"
+  etf:
+    expansion: "exchange traded fund"
+    category: "investments"
+  ipo:
+    expansion: "initial public offering"
+    category: "investments"
+  asba:
+    expansion: "application supported by blocked amount"
+    category: "investments"
+  sgb:
+    expansion: "sovereign gold bond"
+    category: "investments"
+  g_sec:
+    expansion: "government security"
+    category: "investments"
+  t_bill:
+    expansion: "treasury bill"
+    category: "investments"
+  ulip:
+    expansion: "unit linked insurance plan"
+    category: "insurance"
+  ped:
+    expansion: "pre existing disease"
+    category: "insurance"
+  ncb:
+    expansion: "no claim bonus"
+    category: "insurance"
+  csr:
+    expansion: "claim settlement ratio"
+    category: "insurance"
+  tpa:
+    expansion: "third party administrator"
+    category: "insurance"
+  ltcg:
+    expansion: "long term capital gains"
+    category: "taxation"
+  stcg:
+    expansion: "short term capital gains"
+    category: "taxation"
+  hra:
+    expansion: "house rent allowance"
+    category: "taxation"
+  lta:
+    expansion: "leave travel allowance"
+    category: "taxation"
+  ais:
+    expansion: "annual information statement"
+    category: "taxation"
+  tis:
+    expansion: "taxpayer information summary"
+    category: "taxation"
+  ltv:
+    expansion: "loan to value ratio"
+    category: "loans"
+  mad:
+    expansion: "minimum amount due"
+    category: "credit_cards"
+  dcc:
+    expansion: "dynamic currency conversion"
+    category: "credit_cards"
+  scss:
+    expansion: "senior citizen savings scheme"
+    category: "banking"
+  huf:
+    expansion: "hindu undivided family"
+    category: "taxation"
+
+synonyms:
+  home_loan:
+    - "housing loan"
+    - "mortgage loan"
+    - "property loan"
+  interest_rate:
+    - "roi"
+    - "rate of interest"
+    - "borrowing rate"
+    - "lending rate"
+    - "interest"
+  credit_score:
+    - "cibil score"
+    - "credit rating"
+    - "credit report"
+    - "credit history"
+  mutual_fund:
+    - "mf"
+    - "managed fund"
+    - "mutual funds"
+    - "equity fund"
+  fixed_deposit:
+    - "term deposit"
+    - "fd"
+    - "time deposit"
+    - "bank deposit"
+  recurring_deposit:
+    - "rd"
+    - "cumulative deposit"
+  prepayment:
+    - "part payment"
+    - "early repayment"
+    - "foreclosure"
+    - "loan payoff"
+  minimum_due:
+    - "minimum amount due"
+    - "mad"
+    - "min due"
+  billing_cycle:
+    - "statement cycle"
+    - "billing period"
+    - "credit period"
+  deductible:
+    - "excess"
+    - "out of pocket threshold"
+  life_insurance:
+    - "term plan"
+    - "term insurance"
+    - "life cover"
+  health_insurance:
+    - "mediclaim"
+    - "medical insurance"
+    - "health cover"
+  tax_saving:
+    - "80c"
+    - "tax deduction"
+    - "elss"
+    - "tax exemption"

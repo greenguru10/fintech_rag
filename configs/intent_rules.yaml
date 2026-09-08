@@ -1,0 +1,110 @@
+definition:
+  phrases:
+    - "what is"
+    - "what are"
+    - "meaning of"
+    - "define"
+    - "definition of"
+    - "what does"
+    - "stands for"
+  patterns:
+    - "^what is (an? )?([a-zA-Z0-9_ ]+)\\??$"
+    - "^define ([a-zA-Z0-9_ ]+)\\??$"
+    - "^what does ([a-zA-Z0-9_ ]+) mean\\??$"
+
+explanation:
+  phrases:
+    - "how does"
+    - "how do"
+    - "how work"
+    - "how works"
+    - "explain"
+    - "why is"
+    - "how is"
+  patterns:
+    - "^how does ([a-zA-Z0-9_ ]+) work\\??$"
+    - "^explain ([a-zA-Z0-9_ ]+)\\??$"
+
+comparison:
+  phrases:
+    - " vs "
+    - " versus "
+    - "difference between"
+    - "compare"
+    - "differ from"
+    - "how is it different"
+    - "difference"
+  patterns:
+    - "\\b([a-zA-Z0-9_ ]+)\\s+(vs|versus|compared to)\\s+([a-zA-Z0-9_ ]+)\\b"
+    - "\\bdifference between\\s+([a-zA-Z0-9_ ]+)\\s+and\\s+([a-zA-Z0-9_ ]+)\\b"
+
+procedure:
+  phrases:
+    - "how to"
+    - "steps to"
+    - "how do i"
+    - "how can i"
+    - "process for"
+    - "procedure for"
+    - "steps for"
+  patterns:
+    - "^how (to|do i|can i) ([a-zA-Z0-9_ ]+)\\??$"
+    - "^(steps|process|procedure) (to|for) ([a-zA-Z0-9_ ]+)\\??$"
+
+calculation:
+  phrases:
+    - "calculate"
+    - "compute"
+    - "calculate emi"
+    - "calculate sip"
+    - "calculate interest"
+    - "calculate cagr"
+    - "how much will"
+    - "what will"
+  patterns:
+    - "\\bcalculate\\b"
+    - "\\bcompute\\b"
+    - "\\bemi for\\b"
+    - "\\bsip for\\b"
+    - "\\bcagr from\\b"
+    - "\\bcompound interest on\\b"
+    - "\\bsimple interest on\\b"
+    - "what will .* become in"
+
+fees:
+  phrases:
+    - "fee"
+    - "fees"
+    - "charge"
+    - "charges"
+    - "penalty"
+    - "annual fee"
+    - "processing fee"
+    - "cost of"
+
+interest:
+  phrases:
+    - "interest rate"
+    - "rate of interest"
+    - "interest on"
+    - "what is the interest"
+
+eligibility:
+  phrases:
+    - "eligibility"
+    - "who is eligible"
+    - "criteria for"
+    - "qualify for"
+    - "who can open"
+    - "who can apply"
+
+regulation:
+  phrases:
+    - "rbi guidelines"
+    - "sebi rules"
+    - "irdai norm"
+    - "regulation"
+    - "is it mandatory"
+    - "legal requirement"
+    - "complaint"
+    - "grievance"

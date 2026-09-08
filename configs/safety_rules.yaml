@@ -1,0 +1,36 @@
+unsupported_patterns:
+  - "\\bwhich stock should i buy\\b"
+  - "\\bwhich stock to buy\\b"
+  - "\\bwhich shares to buy\\b"
+  - "\\binvest all my money\\b"
+  - "\\bguaranteed return\\b"
+  - "\\bguarantee profit\\b"
+  - "\\bwill .* stock .* rise\\b"
+  - "\\bstock prediction\\b"
+  - "\\bprice target for\\b"
+  - "\\bshould i invest in crypto\\b"
+  - "\\bshould i take this loan based on my salary\\b"
+  - "\\bhow to avoid paying tax illegally\\b"
+  - "\\bevade tax\\b"
+  - "\\blaunder money\\b"
+  - "\\bmake money fast\\b"
+  - "\\bhot stocks\\b"
+  - "\\bmultibagger stock\\b"
+  - "\\btell me your password\\b"
+  - "\\bsecret key\\b"
+
+safety_templates:
+  personalized_advice: |
+    I can provide general educational financial information, but I cannot recommend specific stocks, predict market returns, or advise you where to invest your personal money.
+
+    Investment decisions depend on your financial goals, risk tolerance, time horizon, and liquidity needs. Consider consulting a SEBI-registered investment adviser (RIA) or licensed financial planner for personalized advice.
+
+  illegal_activity: |
+    I cannot provide guidance on evading taxes, laundering funds, or bypassing legal/regulatory requirements.
+
+    I can explain legal deductions and tax provisions under the Income Tax Act or official banking regulations.
+
+  insufficient_evidence: |
+    I couldn't find sufficient verified information in the financial knowledge base to answer this question.
+
+    Try using a more specific term, or ask about an approved financial-literacy topic (such as banking terms, loan EMI, SIP calculations, or KYC norms).
