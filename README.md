@@ -38,34 +38,7 @@ A deterministic, **hallucination-free**, sub-50ms financial knowledge retrieval 
 
 ---
 
-## 🏛️ System Architecture
 
-```mermaid
-graph TD
-    User([User / Web Browser]) -->|POST /api/v1/chat| API[FastAPI Gateway]
-    
-    subgraph "Core Orchestration Engine"
-        API --> Resolver[Follow-up & Pronoun Resolver]
-        Resolver --> Intent[Rule-Based Intent Classifier]
-        
-        Intent -->|Calculation Intent| CalcEngine[Universal Calculation Engine]
-        Intent -->|Regulatory Query| HybridSearch[Hybrid In-Memory Retriever]
-        
-        subgraph "Hybrid Retrieval Pipeline"
-            HybridSearch --> BM25[BM25 Okapi]
-            HybridSearch --> TFIDF[TF-IDF Vector Space]
-            BM25 & TFIDF --> RRF[Score Fusion & Reranker]
-            RRF --> Evidence[Evidence Sentence Extractor]
-        end
-        
-        CalcEngine --> AnsBuilder[Deterministic Answer Builder]
-        Evidence --> AnsBuilder
-        AnsBuilder --> Citation[Citation & Confidence Scorer]
-    end
-    
-    Citation -->|Instant HTTP Response (<40ms)| User
-    Citation -.->|Background Task| DB[(Supabase PostgreSQL)]
-```
 
 ---
 
