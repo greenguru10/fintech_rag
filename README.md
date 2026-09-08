@@ -1,5 +1,7 @@
 # ⚡ FinTech Zero-LLM RAG & Financial Calculation Engine
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-fintech--rag2.onrender.com-blueviolet?style=for-the-badge&logo=render)](https://fintech-rag2.onrender.com/)
+
 [![Python 3.11](https://img.shields.io/badge/Python-3.11%2B-blue.svg?logo=python)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg?logo=fastapi)](https://fastapi.tiangolo.com)
 [![PostgreSQL](https://img.shields.io/badge/Database-Supabase%20PostgreSQL-336791.svg?logo=postgresql)](https://supabase.com)
@@ -7,6 +9,8 @@
 [![Latency](https://img.shields.io/badge/Latency-Sub--50ms-success.svg)]()
 [![Tests](https://img.shields.io/badge/Tests-23%2F23%20Passing-brightgreen.svg)]()
 [![Docker](https://img.shields.io/badge/Docker-Production%20Ready-2496ED.svg?logo=docker)](https://www.docker.com/)
+
+🌐 **Live Demo Application**: **[https://fintech-rag2.onrender.com/](https://fintech-rag2.onrender.com/)**
 
 A deterministic, **hallucination-free**, sub-50ms financial knowledge retrieval and calculation engine built **without generative LLM APIs**. Grounded strictly in official Indian financial regulations (**RBI, SEBI, IRDAI, NPCI, PFRDA, Income Tax Department**), featuring an authentic ChatGPT-style interface and full Supabase cloud persistence.
 

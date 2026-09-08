@@ -2,6 +2,8 @@
 
 This deterministic, zero-LLM FinTech AI platform is designed for **high throughput, minimal latency (<15ms), zero hallucination, and instant deployment** to any modern cloud container provider.
 
+🌐 **Live Production Deployment**: **[https://fintech-rag2.onrender.com/](https://fintech-rag2.onrender.com/)**
+
 ---
 
 ## 🚀 Option 1: Deploy on Render.com (Recommended Free/Easy)
