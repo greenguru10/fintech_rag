@@ -28,6 +28,7 @@ A deterministic, **hallucination-free**, sub-50ms financial knowledge retrieval 
   - Interactive topic pills (*Loans & EMI, SIP & Investing, Tax & Savings, Banking & UPI*).
   - Clickable citation cards linking directly to official regulatory portals.
   - One-click copy with toast notifications and feedback ratings.
+- ⏱️ **24/7 Render Uptime Bot**: Built-in auto-pinger and GitHub Actions scheduled workflow keeping free Render containers awake 24/7 with zero cold starts.
 - ☁️ **Supabase Cloud PostgreSQL Integration**: Full schema persistence with connection pooling, session history caching, and automatic fallback.
 - 🧪 **Automated Verification Suite**: Continuous AST scanner preventing generative AI imports and full test suite with 23 passing integration/unit tests.
 

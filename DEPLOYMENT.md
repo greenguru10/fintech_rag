@@ -21,6 +21,30 @@ This deterministic, zero-LLM FinTech AI platform is designed for **high throughp
    ```
 6. Click **Deploy Web Service**. Your chatbot will be live with free HTTPS (e.g. `https://your-chatbot.onrender.com`).
 
+### ⏱️ 24/7 Uptime Bot for Render (Zero Cold Starts)
+
+Render free tier instances sleep after 15 minutes of inactivity. To keep your chatbot **awake 24/7 with zero cold starts and instant response times**:
+
+#### Method 1: Built-in Self-Pinger (Zero Config)
+When deployed on Render, the application automatically detects its `RENDER_EXTERNAL_URL` environment variable and runs an asynchronous keep-alive background worker that sends a heartbeat to `/api/v1/ping` every 9 minutes.
+
+#### Method 2: GitHub Actions Automated Uptime Bot (Included)
+This repository includes a scheduled GitHub Actions workflow in [`.github/workflows/keep_alive.yml`](file:///.github/workflows/keep_alive.yml).
+1. Go to your GitHub repository **Settings > Secrets and variables > Actions**.
+2. Add a new repository secret:
+   - **Name**: `RENDER_APP_URL`
+   - **Value**: `https://your-app-name.onrender.com`
+3. GitHub Actions will automatically ping your service every 10 minutes for free!
+
+#### Method 3: UptimeRobot (Free External Monitor)
+1. Create a free account on **[UptimeRobot.com](https://uptimerobot.com/)**.
+2. Click **Add New Monitor**:
+   - **Monitor Type**: `HTTP(s)`
+   - **Friendly Name**: `FinTech RAG Render Bot`
+   - **URL**: `https://your-app-name.onrender.com/api/v1/ping`
+   - **Monitoring Interval**: `5 minutes`
+3. Save the monitor. Your app will remain 100% online 24/7.
+
 ---
 
 ## ⚡ Option 2: Deploy on Railway.app

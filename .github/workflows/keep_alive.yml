@@ -1,0 +1,17 @@
+name: Render 24/7 Keep-Alive Uptime Bot
+
+on:
+  schedule:
+    # Runs every 10 minutes (Render sleeps after 15 minutes of inactivity)
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  ping-keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render Web Service
+        run: |
+          TARGET_URL="${{ secrets.RENDER_APP_URL || 'https://fintech-rag.onrender.com' }}"
+          echo "Sending keep-alive ping to $TARGET_URL/api/v1/ping..."
+          curl -s -f -m 15 -A "GitHub-KeepAlive-Bot/1.0" "$TARGET_URL/api/v1/ping" || echo "Ping request finished"

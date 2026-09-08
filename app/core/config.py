@@ -40,6 +40,11 @@ class Settings(BaseSettings):
 
     LOG_LEVEL: str = "INFO"
 
+    # 24/7 Render Uptime / Keep-Alive Configuration
+    RENDER_EXTERNAL_URL: str | None = None
+    KEEP_ALIVE_URL: str | None = None
+    KEEP_ALIVE_INTERVAL_SECONDS: int = 540  # 9 minutes (Render sleeps at 15 mins)
+
     # Paths
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent
     DATA_DIR: Path = BASE_DIR / "data"

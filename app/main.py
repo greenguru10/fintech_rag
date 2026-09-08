@@ -51,8 +51,38 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         logger.warning(f"startup.init_db_notice: {e}")
 
+    # 5. Start self-keep-alive pinger for Render 24/7 uptime
+    keep_alive_target = settings.KEEP_ALIVE_URL or settings.RENDER_EXTERNAL_URL
+    keep_alive_task = None
+    if keep_alive_target:
+        import asyncio
+        import urllib.request
+
+        async def _keep_alive_loop(target_url: str, interval: int):
+            logger.info("keep_alive.started", target_url=target_url, interval_seconds=interval)
+            while True:
+                try:
+                    await asyncio.sleep(interval)
+                    ping_url = f"{target_url.rstrip('/')}/api/v1/ping"
+                    req = urllib.request.Request(
+                        ping_url,
+                        headers={"User-Agent": "FinTech-KeepAlive-Bot/1.0"},
+                    )
+                    await anyio.to_thread.run_sync(lambda: urllib.request.urlopen(req, timeout=10))
+                    logger.info("keep_alive.ping_success", url=ping_url)
+                except asyncio.CancelledError:
+                    break
+                except Exception as ex:
+                    logger.warning("keep_alive.ping_failed", error=str(ex))
+
+        keep_alive_task = asyncio.create_task(
+            _keep_alive_loop(keep_alive_target, settings.KEEP_ALIVE_INTERVAL_SECONDS)
+        )
+
     logger.info("startup.complete", ready=True)
     yield
+    if keep_alive_task:
+        keep_alive_task.cancel()
     logger.info("shutdown.complete")
 
 
